@@ -1,0 +1,25 @@
+[
+  {
+    "Name": "LEVEL_1",
+    "Width": 900.0,
+    "Height": 900.0,
+    "TileSize": 100.0,
+    "SnakeLength": 3,
+    "SnakeHeadColor": {
+      "R": 148,
+      "G": 24,
+      "B": 34,
+      "A": 255
+    },
+    "SnakeBodyColor": {
+      "R": 110,
+      "G": 4,
+      "B": 13,
+      "A": 255
+    },
+    "Shaders": [
+      "BACKGROUND",
+      "TILE"
+    ]
+  }
+]

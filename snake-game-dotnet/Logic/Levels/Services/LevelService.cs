@@ -1,24 +1,27 @@
 using Newtonsoft.Json;
 using SFML.Graphics;
-using snake_game_dotnet.GameLogic;
-using snake_game_dotnet.Logic.Levels.Interfaces;
 using snake_game_dotnet.Logic.Levels.Models;
-using snake_game_dotnet.Logic.Shaders;
-using snake_game_dotnet.Logic.Shaders.Interfaces;
+using snake_game_dotnet.Logic.Levels.Services.Interfaces;
+using snake_game_dotnet.Logic.Rendering;
+using snake_game_dotnet.Logic.Shaders.Services;
+using snake_game_dotnet.Logic.Shaders.Services.Interfaces;
+using snake_game_dotnet.Logic.Snake.Services;
 using snake_game_dotnet.Logic.Tiles;
 using snake_game_dotnet.System;
 
-namespace snake_game_dotnet.Logic.Levels;
+namespace snake_game_dotnet.Logic.Levels.Services;
 
 public class LevelService : ILevelService
 {
     private IShaderService _shaderService;
+    private SnakeService _snakeService;
     
     public List<Level> Levels { get; set; }
 
     public LevelService()
     {
         _shaderService = ShaderServiceSingleton.Instance;
+        _snakeService = SnakeServiceSingleton.Instance;
         LoadFromJson();
     }
 
@@ -28,19 +31,23 @@ public class LevelService : ILevelService
         Level level = GetLevel(levelName);
         LoadShaders(level);
         
-        Shader tileShader = _shaderService.GetShader(level.Name, level.TileShader);
+        Shader tileShader = _shaderService.GetShader(level.Name, "TILE");
             
         float tileSize = level.TileSize * 1.0f;
         float sizeX = level.Width / tileSize;
         float sizeY = level.Height / tileSize;
+        
+        _snakeService.SpawnSnake(level);
         
         while (window.IsOpen)
         {
             window.DispatchEvents();
             window.Clear(Color.Black);
             
-            RenderService.DrawBackground(window, _shaderService.GetShader(level.Name, level.BackgroundShader));
+            // RENDERING
+            RenderService.DrawBackground(window, level, _shaderService.GetShader(level.Name, "BACKGROUND"));
             TileService.DrawTileGrid(sizeX, sizeY, tileSize, tileShader, window);
+            RenderService.DrawSnake(window, level, _snakeService.SnakeInstance);
         
             window.Display();
         }
@@ -70,13 +77,11 @@ public class LevelService : ILevelService
     
     private void LoadShaders(Level level)
     {
-        _shaderService.AddShader(level.Name, level.BackgroundShader);
-        _shaderService.AddShader(level.Name, level.TileShader);
+        level.Shaders.ForEach(shader => _shaderService.AddShader(level.Name, shader));
     }
 
     private void UnloadShaders(Level level)
     {
-        _shaderService.DeleteShader(level.Name, level.BackgroundShader);
-        _shaderService.DeleteShader(level.Name, level.TileShader);
+        level.Shaders.ForEach(shader => _shaderService.DeleteShader(level.Name, shader));
     }
 }

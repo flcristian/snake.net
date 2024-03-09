@@ -11,12 +11,12 @@ void main()
     float distanceX = abs(0.5 - center.x) * 2.0; 
     float distanceY = abs(0.5 - center.y) * 2.0;
 
-    float stepFactor = 0.04;
+    float stepFactor = 0.05;
     float alphaX = smoothstep(0.0, stepFactor, distanceX);
     float alphaY = smoothstep(0.0, stepFactor, distanceY);
 
     float alpha = min(alphaX, alphaY);
     if (gl_FragCoord.x > tileX * tileSize || gl_FragCoord.y > tileY * tileSize) { alpha = 1.; }
-    float frameAlpha = 1;
-    gl_FragColor = vec4(1.0, 1.0, 1.0, frameAlpha * (1.0 - alpha));
+    float frameAlpha = 0.7 * 255;
+    gl_FragColor = (vec4(31, 19, 15, frameAlpha) / 255f) * vec4(1.0, 1.0, 1.0, 1.0 - alpha);
 }

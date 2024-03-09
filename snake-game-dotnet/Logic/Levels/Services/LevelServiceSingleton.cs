@@ -1,4 +1,4 @@
-namespace snake_game_dotnet.Logic.Levels;
+namespace snake_game_dotnet.Logic.Levels.Services;
 
 public class LevelServiceSingleton
 {

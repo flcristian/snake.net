@@ -1,8 +1,8 @@
 using SFML.Graphics;
-using snake_game_dotnet.Logic.Shaders.Interfaces;
+using snake_game_dotnet.Logic.Shaders.Services.Interfaces;
 using snake_game_dotnet.System;
 
-namespace snake_game_dotnet.Logic.Shaders;
+namespace snake_game_dotnet.Logic.Shaders.Services;
 
 public class ShaderService : IShaderService
 {
@@ -15,9 +15,9 @@ public class ShaderService : IShaderService
 
     public void AddShader(string levelName, string shaderName)
     {
-        Shader shader = new Shader(null, null, $"{Constants.SHADERS_FOLDER_PATH}/{levelName}/{shaderName}.frag");
+        Shader shader = new Shader(null, null, $"{Constants.SHADERS_FOLDER_PATH}{levelName}/{shaderName}.frag");
 
-        if (shader.Equals(null))
+        if (shader == null)
         {
             throw new Exception(Constants.SHADER_NOT_FOUND);
         }
@@ -29,7 +29,7 @@ public class ShaderService : IShaderService
     {
         Shader shader = Shaders.GetValueOrDefault($"{levelName}/{shaderName}")!;
 
-        if (shader.Equals(null))
+        if (shader == null)
         {
             throw new Exception(Constants.SHADER_NOT_LOADED);
         }
@@ -41,7 +41,7 @@ public class ShaderService : IShaderService
     {
         Shader shader = Shaders.GetValueOrDefault($"{levelName}/{shaderName}")!;
 
-        if (shader.Equals(null))
+        if (shader == null)
         {
             throw new Exception(Constants.SHADER_NOT_LOADED);
         }

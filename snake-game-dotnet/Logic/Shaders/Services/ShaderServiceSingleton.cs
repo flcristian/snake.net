@@ -1,4 +1,4 @@
-namespace snake_game_dotnet.Logic.Shaders;
+namespace snake_game_dotnet.Logic.Shaders.Services;
 
 public class ShaderServiceSingleton
 {

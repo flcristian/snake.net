@@ -2,7 +2,8 @@ using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
 using snake_game_dotnet.Logic.Levels;
-using snake_game_dotnet.Logic.Levels.Interfaces;
+using snake_game_dotnet.Logic.Levels.Services;
+using snake_game_dotnet.Logic.Levels.Services.Interfaces;
 using snake_game_dotnet.System;
 
 namespace snake_game_dotnet.Logic.Game;

@@ -1,7 +1,7 @@
 using SFML.Graphics;
 using snake_game_dotnet.Logic.Levels.Models;
 
-namespace snake_game_dotnet.Logic.Levels.Interfaces;
+namespace snake_game_dotnet.Logic.Levels.Services.Interfaces;
 
 public interface ILevelService
 {

@@ -1,6 +1,6 @@
 using SFML.Graphics;
 
-namespace snake_game_dotnet.Logic.Shaders.Interfaces;
+namespace snake_game_dotnet.Logic.Shaders.Services.Interfaces;
 
 public interface IShaderService
 {
