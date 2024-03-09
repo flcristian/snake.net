@@ -1,14 +1,11 @@
-﻿using SFML.Graphics;
-using SFML.System;
-using SFML.Window;
-using snake_game_dotnet.Logic.Game;
-using snake_game_dotnet.System;
+﻿using snake_game_dotnet.Logic.Game;
 
 class Program
 {
-    static void Main(string[] args) {
-        GameService game = new GameService();
-        game.StartGame();
+    static void Main(string[] args)
+    {
+        GameService service = new GameService();
+        service.StartGame();
     }
     
 }

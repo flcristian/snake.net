@@ -186,3 +186,5 @@ D:\mycode\csharp\sfml\snake-game-dotnet\snake-game-dotnet\obj\Debug\net8.0\refin
 D:\mycode\csharp\sfml\snake-game-dotnet\snake-game-dotnet\obj\Debug\net8.0\snake-game-dotnet.pdb
 D:\mycode\csharp\sfml\snake-game-dotnet\snake-game-dotnet\obj\Debug\net8.0\snake-game-dotnet.genruntimeconfig.cache
 D:\mycode\csharp\sfml\snake-game-dotnet\snake-game-dotnet\obj\Debug\net8.0\ref\snake-game-dotnet.dll
+D:\mycode\csharp\sfml\snake-game-dotnet\snake-game-dotnet\obj\Debug\net8.0\snake-game-dotnet.sourcelink.json
+D:\mycode\csharp\sfml\snake-game-dotnet\snake-game-dotnet\bin\Debug\net8.0\Newtonsoft.Json.dll

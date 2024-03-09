@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "sGgZvr0erOpiZqO3moEfbmzCdNKddyyVswYnxXWzAF2dncIZN5yYoF3OQuB6s2tpekevV99NbXZTfvWdLkQeng==",
+  "dgSpecHash": "drtHWzK1+Xv1Brqe7D7Bfmbt4BLdAjFb1WISfAsi/3aK03kQhureKRaGfYW42+wj8//j4Eonw9fnRQLC40Dn9A==",
   "success": true,
   "projectFilePath": "D:\\mycode\\csharp\\sfml\\snake-game-dotnet\\snake-game-dotnet\\snake-game-dotnet.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\qflor\\.nuget\\packages\\csfml\\2.5.2\\csfml.2.5.2.nupkg.sha512",
+    "C:\\Users\\qflor\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\qflor\\.nuget\\packages\\sfml.audio\\2.5.1\\sfml.audio.2.5.1.nupkg.sha512",
     "C:\\Users\\qflor\\.nuget\\packages\\sfml.graphics\\2.5.1\\sfml.graphics.2.5.1.nupkg.sha512",
     "C:\\Users\\qflor\\.nuget\\packages\\sfml.net\\2.5.1\\sfml.net.2.5.1.nupkg.sha512",
