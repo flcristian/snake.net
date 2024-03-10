@@ -12,4 +12,5 @@ public class Constants
     public static readonly string LEVEL_NOT_FOUND = "Level does not exist.";
     public static readonly string SHADER_NOT_LOADED = "Shader wasn't loaded properly.";
     public static readonly string SHADER_NOT_FOUND = "Shader does not exist.";
+    public static readonly string SNAKE_NOT_INITIATED = "Snake instance was not initiated.";
 }

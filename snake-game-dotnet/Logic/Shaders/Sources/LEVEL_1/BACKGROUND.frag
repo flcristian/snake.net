@@ -22,8 +22,6 @@ void main()
 
     vec3 color1 = vec3(48, 117, 33) / 255f;
     vec3 color2 = vec3(79, 153, 47) / 255f;
-    /*vec3 color1 = vec3(224, 58, 58) / 255f;
-    vec3 color2 = vec3(32, 212, 173) / 255f;*/
     vec3 color = mix(color1, color2, mixFactor);
 
     gl_FragColor = vec4(color, 1.0);

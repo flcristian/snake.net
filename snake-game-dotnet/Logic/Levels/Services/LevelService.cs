@@ -1,3 +1,4 @@
+using System.Timers;
 using Newtonsoft.Json;
 using SFML.Graphics;
 using snake_game_dotnet.Logic.Levels.Models;
@@ -32,12 +33,12 @@ public class LevelService : ILevelService
         LoadShaders(level);
         
         Shader tileShader = _shaderService.GetShader(level.Name, "TILE");
-            
-        float tileSize = level.TileSize * 1.0f;
-        float sizeX = level.Width / tileSize;
-        float sizeY = level.Height / tileSize;
-        
+
         _snakeService.SpawnSnake(level);
+
+        global::System.Timers.Timer timer = new global::System.Timers.Timer(1000);
+        timer.Elapsed += (sender, e) => OnTimedEvent(sender!, e, level);
+        timer.Enabled = true;
         
         while (window.IsOpen)
         {
@@ -46,12 +47,13 @@ public class LevelService : ILevelService
             
             // RENDERING
             RenderService.DrawBackground(window, level, _shaderService.GetShader(level.Name, "BACKGROUND"));
-            TileService.DrawTileGrid(sizeX, sizeY, tileSize, tileShader, window);
-            RenderService.DrawSnake(window, level, _snakeService.SnakeInstance);
+            TileService.DrawTileGrid(window, level, tileShader);
+            RenderService.DrawSnake(window, level, _snakeService.SnakeInstance!);
         
             window.Display();
         }
-        
+
+        timer.Enabled = false;
         UnloadShaders(level);
     }
     
@@ -83,5 +85,10 @@ public class LevelService : ILevelService
     private void UnloadShaders(Level level)
     {
         level.Shaders.ForEach(shader => _shaderService.DeleteShader(level.Name, shader));
+    }
+
+    private void OnTimedEvent(object source, ElapsedEventArgs e, Level level)
+    {
+        _snakeService.MoveSnake(level);
     }
 }
