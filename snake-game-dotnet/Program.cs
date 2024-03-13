@@ -1,4 +1,4 @@
-﻿using snake_game_dotnet.Logic.Game;
+﻿using snake_game_dotnet.Logic.Game.Services;
 
 namespace snake_game_dotnet;
 
